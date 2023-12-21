@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerPostUser"
+    android:id="@+id/RLActivityAbove"
+    android:background="@color/dark_green">
+
+<!--    TODO: Change the id name-->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/BtnVolPostBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        app:icon="@drawable/chevron_left"
+        app:iconSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/TVActivityTitle"
+        android:layout_below="@+id/BtnVolPostBack">
+
+        <TextView
+            android:id="@+id/TVActivityName"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BtnVolPostBack"
+            android:layout_marginLeft="35dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Animal Shelter Volunteer"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_editactivity"
+            app:iconSize="40dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/BTEditActivity" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TVActivityDesc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVActivityTitle"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/lorem_ipsum"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/TVPoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TVActivityDesc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="105 points"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RLActivityDetails"
+        android:background="@drawable/white_background"
+        android:layout_below="@+id/TVPoints"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BTApplications"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/RLDateActivity">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_calendar"
+                android:tintMode="multiply"
+                android:id="@+id/IVCalendar" />
+
+            <TextView
+                android:id="@+id/TVDateActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/IVCalendar"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingHorizontal="30dp"
+                android:text="May 14, 2023"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RLDateActivity"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/RLTimeActivity">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_time"
+                android:tintMode="multiply"
+                android:id="@+id/IVTime" />
+
+            <TextView
+                android:id="@+id/TVTimeActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/IVTime"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingHorizontal="30dp"
+                android:text="9.00 am - 4.00pm"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/RLTimeActivity"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/RLLocationActivity">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/icon_mapmarker"
+                android:tintMode="multiply"
+                android:id="@+id/IVLocation" />
+
+            <TextView
+                android:id="@+id/TVLocationActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/IVLocation"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingLeft="30dp"
+                android:text="PAWS Animal Rescue Center"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/RLLocationActivity"
+            android:id="@+id/RLLocationDetails" >
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="105dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Jalan PJU 1A/20, Ara Damansara, 47301 Subang, Selangor" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/RLRequirements"
+            android:layout_below="@+id/RLLocationDetails"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Age Group"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TVAgeGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="15-65 years old" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Requirements"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TVRequirements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="sed turpis tincidunt id aliquet risus feugiat in" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Contact Number"
+                android:textColor="@color/purple"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TVPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="012-3456789" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/BTApplications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/dark_purple"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingHorizontal="100dp"
+                android:text="Apply"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

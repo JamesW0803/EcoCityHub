@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Favourites">
+
+    <RelativeLayout
+        android:id="@+id/RLFavHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/dark_green">
+
+        <ImageButton
+            android:id="@+id/BtnFavBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/dark_green"
+            app:srcCompat="@drawable/chevron_left" />
+
+        <TextView
+            android:id="@+id/TVFavourites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="FAVOURITES"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/BtnOptMenuFavourites"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/ic_more_vert" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LLCardFavourites"
+        android:layout_width="match_parent"
+        android:layout_height="818dp"
+        android:layout_below="@+id/RLFavHeader"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/ListViewFavourites"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="30dp"
+            android:foregroundGravity="center_horizontal"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/volunteer_card"
+            android:layout_marginTop="20dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerList">
+
+    <RelativeLayout
+        android:id="@+id/RLVolHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/dark_green">
+
+        <ImageButton
+            android:id="@+id/BtnVolBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/dark_green"
+            app:srcCompat="@drawable/chevron_left" />
+
+        <TextView
+            android:id="@+id/TVVolunteer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="VOLUNTEER"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/BtnOptMenuVolunteer"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/ic_more_vert" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/RLVolSearchFilter"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/RLVolHeader"
+        android:background="@color/white">
+
+
+        <ImageButton
+            android:id="@+id/BtnFilter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/filter" />
+
+        <RelativeLayout
+            android:layout_width="308dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_toStartOf="@id/BtnFilter"
+            android:background="@drawable/background_edit_text"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/SearchViewVolunteer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:queryHint="search volunteer" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/LLCard"
+        android:layout_width="match_parent"
+        android:layout_height="747dp"
+        android:layout_below="@+id/RLVolSearchFilter"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/ListViewVolunteer"
+            android:layout_width="match_parent"
+            android:layout_height="745dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="30dp"
+            android:foregroundGravity="center_horizontal"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/volunteer_card" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

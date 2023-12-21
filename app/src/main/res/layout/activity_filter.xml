@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VolunteerList">
+
+    <RelativeLayout
+        android:id="@+id/RLFilterHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/dark_green">
+
+        <ImageButton
+            android:id="@+id/BtnFilterBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/dark_green"
+            app:srcCompat="@drawable/chevron_left" />
+
+        <TextView
+            android:id="@+id/TVFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="SEARCH FILTER"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLFilterContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/RLFilterHeader"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:id="@+id/TVFilterLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="LOCATION"
+            android:textSize="16sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/LocationContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeWidth="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVFilterLocation"
+            android:background="@drawable/background_edit_text"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETFilterLocation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="text"
+                android:hint="Location"
+                android:fontFamily="@font/montserrat"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/TVFilterDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="DATE PREFER"
+            android:textSize="16sp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/LocationContainer"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/StartDateContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVFilterDate"
+            android:background="@drawable/background_edit_text"
+            app:boxStrokeWidth="0dp"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETFilterStartDate"
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:hint="Start"
+                android:fontFamily="@font/montserrat"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/TVDash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_toEndOf="@+id/StartDateContainer"
+            android:layout_below="@id/TVFilterDate"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="20sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/EndDateContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVFilterDate"
+            android:layout_toRightOf="@+id/TVDash"
+            android:background="@drawable/background_edit_text"
+            app:boxStrokeWidth="0dp"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETFilterEndDate"
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:hint="End"
+                android:fontFamily="@font/montserrat"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/TVFilterAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="AGE"
+            android:textSize="16sp"
+            android:layout_below="@+id/StartDateContainer"
+            android:layout_marginTop="40dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/AgeContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            app:boxStrokeWidth="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TVFilterAge"
+            android:background="@drawable/background_edit_text"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ETFilterAge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lines="1"
+                android:inputType="number"
+                android:hint="Age"
+                android:fontFamily="@font/montserrat"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BtnReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:text="Reset"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/dark_purple"
+            android:textSize="20sp"
+            android:paddingHorizontal="40dp"
+            android:background="@drawable/round_button"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/montserrat_semibold"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BtnApply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/dark_purple"
+            android:textSize="20sp"
+            android:paddingHorizontal="40dp"
+            android:background="@drawable/round_button"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/montserrat_semibold"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
