@@ -36,7 +36,6 @@ import java.util.Objects;
 
 
 public class User_login extends AppCompatActivity {
-    //cbbbbb
     private EditText usernameOrEmailEditText,passwordEditText;
     private ImageButton togglePasswordButton;
     private FirebaseAuth fAuth;
