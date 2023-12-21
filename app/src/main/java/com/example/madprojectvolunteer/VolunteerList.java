@@ -24,11 +24,11 @@ public class VolunteerList extends AppCompatActivity {
         setContentView(R.layout.activity_volunteer_list);
 
         // Assuming you have these arrays
-        String[] titleList = {"Animal Shelter Volunteer", "Elderly Care Companion", "Title3"};
-        String[] locationList = {"PAWS Animal Rescue Center, Subang", "Caring Old Folks Home, Petaling Jaya", "Location3"};
-        String[] dateList = {"3/12/2023", "Date2", "Date3"};
-        String[] timeList = {"9:00AM", "Time2", "Time3"};
-        Boolean[] favList = {true, false, true};
+        String[] titleList = {"Animal Shelter Volunteer", "Elderly Care Companion", "Title3", "Title4"};
+        String[] locationList = {"PAWS Animal Rescue Center, Subang", "Caring Old Folks Home, Petaling Jaya", "Location 3 Lorem Ipsum Lorem Ipsum", "Location 4"};
+        String[] dateList = {"3/12/2023", "Date2", "Date3", "Date4"};
+        String[] timeList = {"9:00AM", "Time2", "Time3", "Time4"};
+        Boolean[] favList = {true, false, true, false};
 
         for (int i = 0; i < titleList.length; i++) {
             volListData = new VolListData(titleList[i], locationList[i], dateList[i], timeList[i], favList[i]);

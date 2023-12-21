@@ -11,14 +11,14 @@
         android:id="@+id/RLFilterHeader"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/dark_green">
+        android:background="@color/green">
 
         <ImageButton
             android:id="@+id/BtnFilterBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:backgroundTint="@color/dark_green"
+            android:backgroundTint="@color/green"
             app:srcCompat="@drawable/chevron_left" />
 
         <TextView
@@ -184,7 +184,7 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/dark_purple"
+            android:backgroundTint="@color/bluish_purple"
             android:textSize="20sp"
             android:paddingHorizontal="40dp"
             android:background="@drawable/round_button"
@@ -192,7 +192,7 @@
             android:fontFamily="@font/montserrat_semibold"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/BtnApply"
+            android:id="@+id/BtnFilterApply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="10dp"
@@ -202,7 +202,7 @@
             android:layout_gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:backgroundTint="@color/dark_purple"
+            android:backgroundTint="@color/bluish_purple"
             android:textSize="20sp"
             android:paddingHorizontal="40dp"
             android:background="@drawable/round_button"

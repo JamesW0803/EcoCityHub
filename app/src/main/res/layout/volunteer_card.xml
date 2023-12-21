@@ -103,7 +103,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="See More"
                 android:textAllCaps="false"
-                android:textColor="@color/dark_purple"
+                android:textColor="@color/bluish_purple"
                 android:textSize="15sp"
                 android:backgroundTint="@color/white"/>
 

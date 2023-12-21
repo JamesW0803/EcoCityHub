@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VolunteerPostUser"
-    android:id="@+id/RLActivityAbove"
-    android:background="@color/dark_green">
-
-<!--    TODO: Change the id name-->
+    android:id="@+id/RLVolPostAbove"
+    android:background="@color/green">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/BtnVolPostBack"
@@ -30,7 +28,7 @@
         android:layout_below="@+id/BtnVolPostBack">
 
         <TextView
-            android:id="@+id/TVActivityName"
+            android:id="@+id/TVVolPostTitle"
             android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/BtnVolPostBack"
@@ -41,17 +39,19 @@
             android:textSize="35dp"
             android:textStyle="bold" />
 
+
         <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
+            android:id="@+id/BtnVolPostFavourite"
+            android:layout_width="69dp"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_editactivity"
-            app:iconSize="40dp"
             android:background="@android:color/transparent"
-            android:id="@+id/BTEditActivity" />
+            app:icon="@drawable/heart_empty"
+            app:iconSize="30dp" />
+
     </LinearLayout>
 
     <TextView
-        android:id="@+id/TVActivityDesc"
+        android:id="@+id/TVVolPostDesc"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TVActivityTitle"
@@ -63,10 +63,10 @@
         android:textSize="15dp" />
 
     <TextView
-        android:id="@+id/TVPoints"
+        android:id="@+id/TVVolPostPoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/TVActivityDesc"
+        android:layout_below="@+id/TVVolPostDesc"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_semibold"
@@ -78,36 +78,51 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/RLActivityDetails"
+        android:id="@+id/RLVolPostDetails"
         android:background="@drawable/white_background"
-        android:layout_below="@+id/TVPoints"
+        android:layout_below="@+id/TVVolPostPoints"
         android:layout_marginTop="20dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/BtnVolApply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="@color/bluish_purple"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingHorizontal="100dp"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/BTApplications"
+            android:layout_below="@+id/BtnVolApply"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="15dp"
-            android:id="@+id/RLDateActivity">
+            android:id="@+id/RLVolPostDate">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/icon_calendar"
                 android:tintMode="multiply"
-                android:id="@+id/IVCalendar" />
+                android:id="@+id/IVVolPostCalendar" />
 
             <TextView
-                android:id="@+id/TVDateActivity"
+                android:id="@+id/TVVolPostDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/IVCalendar"
+                android:layout_toRightOf="@+id/IVVolPostCalendar"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingHorizontal="30dp"
                 android:text="May 14, 2023"
-                android:textColor="@color/purple"
+                android:textColor="@color/bluish_purple"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -116,28 +131,28 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/RLDateActivity"
+            android:layout_below="@+id/RLVolPostDate"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/RLTimeActivity">
+            android:id="@+id/RLVolPostTime">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/icon_time"
                 android:tintMode="multiply"
-                android:id="@+id/IVTime" />
+                android:id="@+id/IVVolPostTime" />
 
             <TextView
-                android:id="@+id/TVTimeActivity"
+                android:id="@+id/TVVolPostTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/IVTime"
+                android:layout_toRightOf="@+id/IVVolPostTime"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingHorizontal="30dp"
                 android:text="9.00 am - 4.00pm"
-                android:textColor="@color/purple"
+                android:textColor="@color/bluish_purple"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -146,28 +161,28 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/RLTimeActivity"
+            android:layout_below="@+id/RLVolPostTime"
             android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
-            android:id="@+id/RLLocationActivity">
+            android:id="@+id/RLVolPostLocation">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/icon_mapmarker"
                 android:tintMode="multiply"
-                android:id="@+id/IVLocation" />
+                android:id="@+id/IVVolPostLocation" />
 
             <TextView
-                android:id="@+id/TVLocationActivity"
+                android:id="@+id/TVVolPostLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/IVLocation"
+                android:layout_toRightOf="@+id/IVVolPostLocation"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingLeft="30dp"
                 android:text="PAWS Animal Rescue Center"
-                android:textColor="@color/purple"
+                android:textColor="@color/bluish_purple"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -176,10 +191,11 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/RLLocationActivity"
-            android:id="@+id/RLLocationDetails" >
+            android:layout_below="@id/RLVolPostLocation"
+            android:id="@+id/RLVolPostAddress" >
 
             <TextView
+                android:id="@+id/TVVolPostAddress"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="105dp"
@@ -188,86 +204,84 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/RLRequirements"
-            android:layout_below="@+id/RLLocationDetails"
+            android:layout_below="@+id/RLVolPostAddress"
             android:layout_marginTop="15dp"
-            android:orientation="vertical">
+            android:id="@+id/SVVolPostBottom"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Age Group"
-                android:textColor="@color/purple"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/RLVolPostBottom"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/TVAgeGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:fontFamily="@font/montserrat"
-                android:text="15-65 years old" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Requirements"
-                android:textColor="@color/purple"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/TVAgeGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Age Group"
+                    android:textColor="@color/bluish_purple"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/TVRequirements"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:fontFamily="@font/montserrat"
-                android:text="sed turpis tincidunt id aliquet risus feugiat in" />
+                <TextView
+                    android:id="@+id/TVAgeGroupValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="15-65 years old" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="Contact Number"
-                android:textColor="@color/purple"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/TVRequirementsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Requirements"
+                    android:textColor="@color/bluish_purple"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/TVPhoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:fontFamily="@font/montserrat"
-                android:text="012-3456789" />
+                <TextView
+                    android:id="@+id/TVRequirementsValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="sed turpis tincidunt id aliquet risus feugiat in" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/BTApplications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/round_button"
-                android:backgroundTint="@color/dark_purple"
-                android:fontFamily="@font/montserrat_semibold"
-                android:paddingHorizontal="100dp"
-                android:text="Apply"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/TVContactTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Contact Number"
+                    android:textColor="@color/bluish_purple"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/TVContactValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="012-3456789" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </RelativeLayout>
 

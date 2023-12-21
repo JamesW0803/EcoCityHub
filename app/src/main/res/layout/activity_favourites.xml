@@ -11,14 +11,14 @@
         android:id="@+id/RLFavHeader"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/dark_green">
+        android:background="@color/green">
 
         <ImageButton
             android:id="@+id/BtnFavBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_centerVertical="true"
-            android:backgroundTint="@color/dark_green"
+            android:backgroundTint="@color/green"
             app:srcCompat="@drawable/chevron_left" />
 
         <TextView
