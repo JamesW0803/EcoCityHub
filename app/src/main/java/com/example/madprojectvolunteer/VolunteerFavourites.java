@@ -2,26 +2,59 @@ package com.example.madprojectvolunteer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.madprojectvolunteer.VolListAdapter;
-import com.example.madprojectvolunteer.VolListData;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
-public class Favourites extends AppCompatActivity {
+public class VolunteerFavourites extends AppCompatActivity {
 
-    private ListView listView;
-    private VolListAdapter listAdapter;
+    private RecyclerView recyclerView;
+    private VolListAdapter recyclerViewAdapter;
     private ArrayList<VolListData> dataArrayList = new ArrayList<>();
     private VolListData volListData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer_list);
+        setContentView(R.layout.activity_volunteer_favourites);
+
+        //Popup menu
+
+        findViewById(R.id.BtnOptMenuFavourites).setOnClickListener(v -> {
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.getMenuInflater().inflate(R.menu.volunteer_popup_menu, popup.getMenu());
+
+            // Set the click listener for the items inside the PopupMenu
+            popup.setOnMenuItemClickListener(item -> {
+                // Switching on the item id of the menu item
+                int itemId = item.getItemId();
+                if (itemId == R.id.menu_vol_list) {
+                    // Handle "Volunteer Activities" click
+                    startActivity(new Intent(this, VolunteerList.class));
+                    return true;
+                } else if (itemId == R.id.menu_vol_favourites) {
+                    // Handle "Favourites" click
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+            popup.show();
+        });
+
+        // Back Button
+        ImageButton btnFavBack = findViewById(R.id.BtnFavBack);
+        btnFavBack.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+        });
+
+        // TODO: Need to change
 
         // Assuming you have these arrays
         String[] titleList = {"Animal Shelter Volunteer", "Elderly Care Companion", "Title3"};
@@ -35,9 +68,10 @@ public class Favourites extends AppCompatActivity {
             dataArrayList.add(volListData);
         }
 
-        listView = findViewById(R.id.ListViewVolunteer);
-        listAdapter = new VolListAdapter(this, dataArrayList);
-        listView.setAdapter(listAdapter);
+        recyclerView  = findViewById(R.id.RecycleViewVolFavourites);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewAdapter  = new VolListAdapter(this, dataArrayList);
+        recyclerView.setAdapter(recyclerViewAdapter);
 
         //TODO: add DetailedActivity.java and fragment_detailed_activity.xml
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

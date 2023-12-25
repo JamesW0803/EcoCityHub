@@ -27,11 +27,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VolunteerList">
-
-            <!-- Add any additional intent filters or configuration as needed -->
+        <activity
+            android:name=".VolunteerList"
+            android:exported="false" >
         </activity>
-
+        <activity
+            android:name=".VolunteerFavourites"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".VolunteerFilter"
+            android:exported="false" >
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

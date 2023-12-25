@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Favourites">
+    tools:context=".VolunteerFavourites">
 
     <RelativeLayout
         android:id="@+id/RLFavHeader"
@@ -52,19 +52,13 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/ListViewFavourites"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecycleViewVolFavourites"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="30dp"
-            android:foregroundGravity="center_horizontal"
-            android:scrollbars="vertical"
-            tools:listitem="@layout/volunteer_card"
-            android:layout_marginTop="20dp"/>
-
+            android:layout_below="@+id/RLVolSearchFilter"
+            android:layout_gravity="center_horizontal"
+            tools:listitem="@layout/activity_volunteer_card"/>
 
     </LinearLayout>
 

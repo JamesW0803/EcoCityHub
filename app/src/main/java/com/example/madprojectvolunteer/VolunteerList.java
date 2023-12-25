@@ -2,59 +2,120 @@ package com.example.madprojectvolunteer;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.ImageButton;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import android.widget.PopupMenu;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.madprojectvolunteer.VolListAdapter;
-import com.example.madprojectvolunteer.VolListData;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class VolunteerList extends AppCompatActivity {
 
-    private ListView listView;
-    private VolListAdapter listAdapter;
+    private RecyclerView recyclerView;
+    private VolListAdapter recyclerViewAdapter;
     private ArrayList<VolListData> dataArrayList = new ArrayList<>();
     private VolListData volListData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_list);
 
-        // Assuming you have these arrays
-        String[] titleList = {"Animal Shelter Volunteer", "Elderly Care Companion", "Title3", "Title4"};
-        String[] locationList = {"PAWS Animal Rescue Center, Subang", "Caring Old Folks Home, Petaling Jaya", "Location 3 Lorem Ipsum Lorem Ipsum", "Location 4"};
-        String[] dateList = {"3/12/2023", "Date2", "Date3", "Date4"};
-        String[] timeList = {"9:00AM", "Time2", "Time3", "Time4"};
-        Boolean[] favList = {true, false, true, false};
+        //Popup menu
 
-        for (int i = 0; i < titleList.length; i++) {
-            volListData = new VolListData(titleList[i], locationList[i], dateList[i], timeList[i], favList[i]);
-            dataArrayList.add(volListData);
-        }
+        findViewById(R.id.BtnOptMenuVolunteer).setOnClickListener(v -> {
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.getMenuInflater().inflate(R.menu.volunteer_popup_menu, popup.getMenu());
 
-        listView = findViewById(R.id.ListViewVolunteer);
-        listAdapter = new VolListAdapter(this, dataArrayList);
-        listView.setAdapter(listAdapter);
+            // Set the click listener for the items inside the PopupMenu
+            popup.setOnMenuItemClickListener(item -> {
+                // Switching on the item id of the menu item
+                int itemId = item.getItemId();
+                if (itemId == R.id.menu_vol_list) {
+                    // Handle "Volunteer Activities" click
+                    startActivity(new Intent(this, VolunteerList.class));
+                    return true;
+                } else if (itemId == R.id.menu_vol_favourites) {
+                    // Handle "Favourites" click
+                    startActivity(new Intent(this, VolunteerFavourites.class));
+                    return true;
+                } else {
+                    return false;
+                }
+            });
 
-        //TODO: add DetailedActivity.java and fragment_detailed_activity.xml
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                Intent intent = new Intent(VolunteerList.this, DetailedActivity.class);
-//                intent.putExtra("title", dataArrayList.get(position).title);
-//                intent.putExtra("time", dataArrayList.get(position).time); // Assuming time is a string
-//                intent.putExtra("location", dataArrayList.get(position).location);
-//                // Set the image resource based on the condition
-//                if (dataArrayList.get(position).isFav) {
-//                    intent.putExtra("image", R.drawable.heart_filled);
-//                } else {
-//                    intent.putExtra("image", R.drawable.heart_empty);
-//                }
-//                startActivity(intent);
-//            }
-//        });
+            popup.show();
+        });
+
+        // Back Button
+        ImageButton btnVolBack = findViewById(R.id.BtnVolBack);
+        btnVolBack.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+        });
+
+        // Filter Button
+        ImageButton btnFilter = findViewById(R.id.BtnVolFilter);
+        btnFilter.setOnClickListener(v -> {
+            startActivity(new Intent(this, VolunteerFilter.class));
+        });
+
+        // RecyclerView setup
+        recyclerView = findViewById(R.id.RecycleViewVolunteer);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewAdapter = new VolListAdapter(this, dataArrayList);
+        recyclerView.setAdapter(recyclerViewAdapter);
+
+        // Fetch activity data from Firebase
+        fetchActivityDataFromFirebase();
+
     }
+
+    private void fetchActivityDataFromFirebase() {
+
+
+        // TODO:Incomplete =======================================================
+
+        // Clear the existing data
+        dataArrayList.clear();
+
+        // Reference to the user's activities in the Firebase Realtime Database
+        DatabaseReference userActivitiesRef = FirebaseDatabase.getInstance().getReference("Activities");
+
+        // Add a ValueEventListener to listen for changes in the data at this location
+        userActivitiesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Iterate through the children (activities) of the user's node
+                for (DataSnapshot activitySnapshot : dataSnapshot.getChildren()) {
+                    // Deserialize the data into a VolListData object
+                    VolListData activity = activitySnapshot.getValue(VolListData.class);
+
+                    // Check if the deserialization was successful
+                    if (activity != null) {
+                        dataArrayList.add(activity);
+                    }
+                }
+
+                // Notify the adapter that the dataset has changed
+                recyclerViewAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors
+                Toast.makeText(VolunteerList.this, "Failed to load activities.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }
