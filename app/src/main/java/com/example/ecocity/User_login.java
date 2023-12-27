@@ -1,18 +1,10 @@
 package com.example.ecocity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
-
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,8 +26,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Objects;
 
 
 public class User_login extends AppCompatActivity {
@@ -94,10 +87,12 @@ public class User_login extends AppCompatActivity {
                 fAuth.signInWithEmailAndPassword(usernameOrEmail,pass1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+                        if(task.isSuccessful()) { // check by Authentication
                             Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), UserProfileMain.class));
-                        } else if(!task.isSuccessful()){
+                            Intent intent = new Intent(getApplicationContext(), UserProfileMain.class);
+                            intent.putExtra("username",usernameOrEmail);
+                            startActivity(intent);
+                        } else if(!task.isSuccessful()){ // check bu username
                             checkUser();
                             Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
                         }else{

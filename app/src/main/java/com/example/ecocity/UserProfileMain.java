@@ -1,19 +1,22 @@
 package com.example.ecocity;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.bumptech.glide.Glide;
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,19 +24,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class UserProfileMain extends AppCompatActivity {
     TextView TitleUsername, UserPoint;
-    ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout;
+    ConstraintLayout myConstraintLayout, AboutUsConstraint, supportLayout, PonitLayout, PrivacyLayout,FeedbackLayout;
     ImageView imageView,imageViewButton;
     Button buttonLogOut;
+    FirebaseStorage mFirebaseStorage;
+    StorageReference mStorageReference;
 
-    private final int GALLERY_REQ_CODE = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         TitleUsername = findViewById(R.id.UserName);
         UserPoint= findViewById(R.id.textView3);
@@ -42,13 +50,22 @@ public class UserProfileMain extends AppCompatActivity {
         //profile picture
         imageView = findViewById(R.id.imageView);
         imageViewButton = findViewById(R.id.imageView4);
+
+
+        mFirebaseStorage = FirebaseStorage.getInstance();
+        mStorageReference = mFirebaseStorage.getReference();
+
+
         // setting profile picture
         imageViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent iGallery = new Intent(Intent.ACTION_PICK);
-                iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(iGallery,GALLERY_REQ_CODE);
+                ImagePicker.with(UserProfileMain.this)
+                        .crop()
+                        .compress(1024)
+                        .maxResultSize(1080,1080)
+                        .start();
+
             }
         });
 
@@ -72,6 +89,14 @@ public class UserProfileMain extends AppCompatActivity {
             }
         });
 
+        PonitLayout = findViewById(R.id.PonitLayout);
+        PonitLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // For accumulated point
+            }
+        });
+
         AboutUsConstraint = findViewById(R.id.AboutUsLayout);
         AboutUsConstraint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,28 +114,104 @@ public class UserProfileMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        PrivacyLayout = findViewById(R.id.PrivacyLayout);
+        PrivacyLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = getIntent().getStringExtra("username");
+                Intent intent = new Intent(UserProfileMain.this, AccPrivacy.class);
+                intent.putExtra("username", username);
+                startActivity(intent);
+            }
+        });
+
+        FeedbackLayout=findViewById(R.id.FeedbackLayout);
+        FeedbackLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfileMain.this,Feedback.class ));
+            }
+        });
     }
 
-
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK) {
-            if (requestCode == GALLERY_REQ_CODE) {
-                // for gallery
-                imageView.setImageURI(data.getData());
-            }
+        if (resultCode == RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+            uploadImageToFirebase(imageUri);
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void uploadImageToFirebase(Uri imageUri) {
+        if (imageUri != null) {
+            final String username = getIntent().getStringExtra("username");
+            StorageReference fileReference = mStorageReference.child("USER_profile_images").child(username + ".jpg");
+
+            fileReference.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(username);
+                                    databaseReference.child("profileImageUrl").setValue(uri.toString());
+                                    Toast.makeText(UserProfileMain.this, "Upload successful", Toast.LENGTH_LONG).show();
+                                    Glide.with(UserProfileMain.this).load(uri).into(imageView);
+                                }
+                            });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(UserProfileMain.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
 
     // retrieve data from firebase and display at user profile
-    public void showUserData(){
+    public void showUserData() {
         Intent intent = getIntent();
-
         String nameUser = intent.getStringExtra("username");
-
         TitleUsername.setText(nameUser);
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(nameUser);
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    // Retrieve the profile image URL and privacy setting
+                    String profileImageUrl = snapshot.child("profileImageUrl").getValue(String.class);
+                    boolean isPrivate = snapshot.child("privacy").getValue(Boolean.class);
+
+                    // Load the profile image using Glide if the account is public
+                    if (!isPrivate && profileImageUrl != null && !profileImageUrl.isEmpty()) {
+                        Glide.with(UserProfileMain.this).load(Uri.parse(profileImageUrl)).into(imageView);
+                    } else {
+                        // Account is private, set a default drawable or image
+                        imageView.setImageResource(R.drawable.user_icon);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle the error if needed
+            }
+        });
     }
+
+
 
 
     // To pass data to edit profile

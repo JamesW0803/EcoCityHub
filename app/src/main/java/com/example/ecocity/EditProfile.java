@@ -1,8 +1,5 @@
 package com.example.ecocity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,7 +24,7 @@ public class EditProfile extends AppCompatActivity {
     EditText editUsername,editTextDate, editContNum, editTextEmail,editAddress;
     Button button4;
     Spinner editGender;
-    String username, gender, dateOfBirth, contNum, email, address;
+    String username, gender, dateOfBirth, contNum, email, address, password;
     DatabaseReference reference;
 
     ConstraintLayout constraintLayout3;
@@ -113,6 +113,7 @@ public class EditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(EditProfile.this, ChangePassword.class);
                 intent.putExtra("username", username);
+                intent.putExtra("password",password);
                 startActivity(intent);
 
             }
@@ -189,6 +190,7 @@ public class EditProfile extends AppCompatActivity {
         contNum= intent.getStringExtra("contNum");
         email = intent.getStringExtra("email");
         address = intent.getStringExtra("address");
+        password = intent.getStringExtra("password");
 
 
         editUsername.setText(username);

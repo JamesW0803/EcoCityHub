@@ -13,7 +13,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Rating extends AppCompatActivity {
+    DatabaseReference reference;
+    FirebaseDatabase database;
+    Float rateProfileSystem, rateVolunteer, rateResource, ratePoint, rateOverall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,12 @@ public class Rating extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                database=FirebaseDatabase.getInstance();
+                reference=database.getReference("Rating");
+
+                RatingHelperClass helperClass = new RatingHelperClass(rateProfileSystem, rateVolunteer, rateResource, ratePoint, rateOverall);
+                reference.setValue(helperClass);
+
                 String message = "We appreciated you rating! It means a lot to us.";
                 Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
 
@@ -55,6 +67,7 @@ public class Rating extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 ProfileRateCount.setText("You have rated " + rating);
+                rateProfileSystem= rating;
             }
         });
 
@@ -62,6 +75,7 @@ public class Rating extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 VolunteerRateCount.setText("You have rated " + rating);
+                rateVolunteer= rating;
             }
         });
 
@@ -69,6 +83,7 @@ public class Rating extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 PointRateCount.setText("You have rated " + rating);
+                ratePoint=rating;
             }
         });
 
@@ -76,6 +91,7 @@ public class Rating extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 OverallRateCount.setText("You have rated " + rating);
+                rateOverall = rating;
             }
         });
 
@@ -83,6 +99,7 @@ public class Rating extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 ResourceRateCount.setText("You have rated " + rating);
+                rateResource=rating;
             }
         });
     }
