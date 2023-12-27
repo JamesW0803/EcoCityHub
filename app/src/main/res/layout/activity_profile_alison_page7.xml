@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Your ScrollView containing the main content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".Profile_alison">
+
+            <ImageView
+                android:id="@+id/IVRectangle"
+                android:layout_width="412dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="-14dp"
+                android:layout_marginBottom="800dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/title_background" />
+
+            <TextView
+                android:id="@+id/TVProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginBottom="86dp"
+                android:fontFamily="@font/montserrat"
+                android:text="PROFILE"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintEnd_toEndOf="@+id/IVRectangle"
+                app:layout_constraintStart_toEndOf="@+id/IVArrowBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/IVArrowBack"
+                android:layout_width="23dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/img_1" />
+
+            <ImageView
+                android:id="@+id/IVGreen"
+                android:layout_width="0dp"
+                android:layout_height="205dp"
+                android:layout_marginTop="-25dp"
+                android:layout_marginBottom="1000dp"
+                android:src="@drawable/content_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle" />
+
+            <ImageView
+                android:id="@+id/IVPicture"
+                android:layout_width="251dp"
+                android:layout_height="280dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="255dp"
+                android:layout_marginBottom="860dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/img_13" />
+
+
+            <ImageView
+                android:id="@+id/IVWhite"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="360dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/BEditProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/IVGreen"
+                app:srcCompat="@drawable/baseline_circle_white_24" />
+
+            <ImageView
+                android:id="@+id/IVWhite3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/TVAlison"
+                app:layout_constraintEnd_toStartOf="@+id/BEditProfile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/IVGreen"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/baseline_circle_white_24" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="7dp"
+                android:background="#00FFFFFF"
+                android:contentDescription="Click to upload"
+                app:layout_constraintBottom_toBottomOf="@+id/IVWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.92"
+                app:layout_constraintStart_toStartOf="@+id/IVWhite"
+                app:layout_constraintTop_toTopOf="@+id/IVWhite"
+                app:layout_constraintVertical_bias="0.521"
+                app:srcCompat="@drawable/baseline_camera_alt_24" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:background="#00FFFFFF"
+                android:contentDescription="Click to upload"
+                app:layout_constraintBottom_toBottomOf="@+id/IVWhite3"
+                app:layout_constraintEnd_toEndOf="@+id/IVWhite3"
+                app:layout_constraintStart_toStartOf="@+id/IVWhite3"
+                app:layout_constraintTop_toTopOf="@+id/IVWhite3"
+                app:srcCompat="@drawable/baseline_camera_alt_24" />
+
+            <Button
+                android:id="@+id/BEditProfile"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="75dp"
+                android:background="@drawable/sharp_corner_button"
+                android:fontFamily="@font/montserrat"
+                android:text="Edit Profile"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/IVPicture"
+                app:layout_constraintTop_toBottomOf="@+id/IVGreen" />
+
+            <TextView
+                android:id="@+id/TVAlison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Alison"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/IVPicture"
+                app:layout_constraintStart_toStartOf="@+id/IVPicture"
+                app:layout_constraintTop_toBottomOf="@+id/IVPicture" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="830dp"
+                android:background="#A6A6A6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVAlison" />
+
+            <!-- TabLayout positioned below the View -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:tabTextAppearance="@style/CustomTabText">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Listings"
+                    android:textColor="@color/darkPurpleButton"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Likes"
+                    android:textColor="@color/darkPurpleButton"
+                    android:textStyle="bold" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/view_pager"
+                android:layout_below="@id/tab_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>
+

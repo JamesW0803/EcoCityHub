@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="whiteEditTextBackground">#FFFFFF</color>
+    <color name="whiteText">#FFFFFF</color>
+    <color name="blackText">#000000</color>
+    <color name="darkBlueText">#4B4B84</color>
+    <color name="seaGreenLogo">#3CB6B4</color>
+    <color name="darkSeaGreenTitleBackground">#7FC19E</color>
+    <color name="lightGreenContentBackground">#D8ECE2</color>
+    <color name="darkPurpleButton">#7C7DCC</color>
+    <color name="darkPurpleIcon">#7C7DCC</color>
+    <color name="lightPurpleEditTextBackground">#EBECF7</color>
+    <color name="indigoLinks">#0000EE</color>
+    <color name="redErrors">#FB0303</color>
+    <color name="redCancel">#FB0303</color>
+</resources>

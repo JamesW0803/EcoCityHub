@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/tools"
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+    android:layout_margin="15dp"
+    cardview:cardCornerRadius="4dp"
+    android:backgroundTint="@color/lightPurpleEditTextBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/profile_picture_id"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="6dp"
+                android:src="@drawable/img_14"/>
+
+            <TextView
+                android:id="@+id/username_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Lyaa_01"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/item_id"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/img_9"/>
+
+        <TextView
+            android:id="@+id/item_description_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:fontFamily="@font/montserrat"
+            android:text="SOFT WOMAN KHAKI PLAIN S.."
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/type_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Brand new"
+            android:textSize="12sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginTop="-5dp"
+            android:background="#00FFFFFF"
+            android:contentDescription="Click to upload or drag and drop"
+            android:src="@drawable/baseline_favorite_border_24"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+
+
+

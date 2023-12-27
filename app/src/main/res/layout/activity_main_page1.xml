@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Your ScrollView containing the main content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity">
+
+            <ImageView
+                android:id="@+id/IVRectangle"
+                android:layout_width="412dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="-14dp"
+                android:layout_marginBottom="800dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/title_background" />
+
+            <TextView
+                android:id="@+id/TVResourceExchange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="86dp"
+                android:fontFamily="@font/montserrat"
+                android:text="RESOURCE EXCHANGE"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintStart_toEndOf="@+id/IVArrowBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/IVArrowBack"
+                android:layout_width="23dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/img_1" />
+
+            <ImageView
+                android:id="@+id/IVLocation"
+                android:layout_width="21dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="83dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/IVRectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/TVResourceExchange"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img" />
+
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="217dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/curve_rectangle"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Resource"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle" />
+
+            <ImageView
+                android:id="@+id/IVPink"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="38dp"
+                app:layout_constraintStart_toEndOf="@+id/searchView"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/img_13" />
+
+            <TextView
+                android:id="@+id/TVAlison"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Alison"
+                app:layout_constraintStart_toEndOf="@+id/IVPink"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle" />
+
+            <ImageView
+                android:id="@+id/IVHeart"
+                android:layout_width="25dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="44dp"
+                app:layout_constraintEnd_toStartOf="@+id/IVMessage"
+                app:layout_constraintStart_toEndOf="@+id/TVAlison"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+            <ImageView
+                android:id="@+id/IVMessage"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/IVHeart"
+                app:layout_constraintTop_toBottomOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/img_5" />
+
+
+            <TextView
+                android:id="@+id/TVDailyDiscover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="97dp"
+                android:fontFamily="@font/montserrat"
+                android:text="DAILY DISCOVER"
+                android:textColor="#7C7DCC"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:columnCount="2"
+                android:rowCount="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVDailyDiscover">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#ebecf7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/IVShoe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingTop="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_7" />
+
+                        <TextView
+                            android:id="@+id/TVName1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="melstan"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/IVShoe"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPlace"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="86dp"
+                            android:layout_marginTop="19dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="#Perak"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toStartOf="@+id/IVShoe"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/IVProfile1"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toTopOf="@+id/IVShoe"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_6" />
+
+                        <ImageView
+                            android:id="@+id/IVFavourite1"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="107dp"
+                            android:layout_marginBottom="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/TVLikeNew1"
+                            app:layout_constraintTop_toBottomOf="@id/TVAsicsTiger"
+                            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+                        <TextView
+                            android:id="@+id/TVAsicsTiger"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="153dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="ASICS TIGER CLASSIC CT MAN S."
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/IVShoe" />
+
+                        <TextView
+                            android:id="@+id/TVLikeNew1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Like New"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#ebecf7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/item_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingTop="4.5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_9" />
+
+                        <TextView
+                            android:id="@+id/username_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="9dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Lyaa_01"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/item_id"
+                            app:layout_constraintStart_toEndOf="@+id/profile_picture_id"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPlace2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="93dp"
+                            android:layout_marginTop="19dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="#Kelantan"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toStartOf="@+id/item_id"
+                            app:layout_constraintStart_toEndOf="@+id/profile_picture_id"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/profile_picture_id"
+                            android:layout_width="43dp"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toTopOf="@+id/item_id"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_14" />
+
+                        <ImageView
+                            android:id="@+id/favourite_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="107dp"
+                            android:layout_marginBottom="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/type_id"
+                            app:layout_constraintTop_toBottomOf="@id/item_description_id"
+                            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+                        <TextView
+                            android:id="@+id/item_description_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="153dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="SOFT WOMAN KHAKI PLAIN SH.."
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/item_id" />
+
+                        <TextView
+                            android:id="@+id/type_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Brand New"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#ebecf7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/IVBook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingTop="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_8" />
+
+                        <TextView
+                            android:id="@+id/TVName4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="22dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Alison"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/IVBook"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile4"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPlace4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="86dp"
+                            android:layout_marginTop="19dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="#Selangor"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toStartOf="@+id/IVBook"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile4"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/IVProfile4"
+                            android:layout_width="43dp"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="37dp"
+                            android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toTopOf="@+id/IVBook"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_13" />
+
+                        <ImageView
+                            android:id="@+id/IVFavourite4"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="107dp"
+                            android:layout_marginBottom="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/TVLikeNew4"
+                            app:layout_constraintTop_toBottomOf="@id/TVNotebook"
+                            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+                        <TextView
+                            android:id="@+id/TVNotebook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="153dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="300 PAGES PLAIN WHITE NOTE.."
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/IVBook" />
+
+                        <TextView
+                            android:id="@+id/TVLikeNew4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Like New"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#ebecf7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/IVMouse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingTop="6dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_10" />
+
+                        <TextView
+                            android:id="@+id/TVName5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Beldon_L"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/IVMouse"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile5"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPlace5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="86dp"
+                            android:layout_marginTop="19dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="#Melaka"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toStartOf="@+id/IVMouse"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile5"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/IVProfile5"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toTopOf="@+id/IVMouse"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_6" />
+
+                        <ImageView
+                            android:id="@+id/IVFavourite5"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginEnd="3dp"
+                            android:layout_marginBottom="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/TVLightlyUsed5"
+                            app:layout_constraintTop_toBottomOf="@id/TVWirelessMouse"
+                            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+                        <TextView
+                            android:id="@+id/TVWirelessMouse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="153dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="PLAIN WHITE WIRELESS MOUSE"
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/IVMouse" />
+
+                        <TextView
+                            android:id="@+id/TVLightlyUsed5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Lightly Used"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#ebecf7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/IVChair"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingTop="3dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_11" />
+
+                        <TextView
+                            android:id="@+id/TVName3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="User_76"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/IVChair"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPlace3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="86dp"
+                            android:layout_marginTop="19dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="#Kuching"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toStartOf="@+id/IVChair"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/IVProfile3"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toTopOf="@+id/IVChair"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_6" />
+
+                        <ImageView
+                            android:id="@+id/IVFavourite3"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="65dp"
+                            android:layout_marginBottom="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/TVModeratelyUsed3"
+                            app:layout_constraintTop_toBottomOf="@id/TVSecondHandChair"
+                            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+                        <TextView
+                            android:id="@+id/TVSecondHandChair"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="153dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="COMFORTABLE SECOND-HAND.."
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/IVChair" />
+
+                        <TextView
+                            android:id="@+id/TVModeratelyUsed3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Moderately Used"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#ebecf7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/IVBag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingTop="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_12" />
+
+                        <TextView
+                            android:id="@+id/TVName6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="30dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Tracy"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/IVBag"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile6"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TVPlace6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="89dp"
+                            android:layout_marginTop="19dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="#Kelantan"
+                            android:textSize="10sp"
+                            app:layout_constraintEnd_toStartOf="@+id/IVBag"
+                            app:layout_constraintStart_toEndOf="@+id/IVProfile6"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/IVProfile6"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="149dp"
+                            app:layout_constraintBottom_toTopOf="@+id/IVBag"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_6" />
+
+                        <ImageView
+                            android:id="@+id/IVFavourite6"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="107dp"
+                            android:layout_marginBottom="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/TVBrandNew6"
+                            app:layout_constraintTop_toBottomOf="@id/TVLeatherBag"
+                            app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+                        <TextView
+                            android:id="@+id/TVLeatherBag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="153dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="LADIES WOMEN LEATHER HAN.."
+                            android:textAlignment="center"
+                            android:textColor="#000000"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/IVBag" />
+
+                        <TextView
+                            android:id="@+id/TVBrandNew6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/montserrat"
+                            android:text="Brand New"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!-- Your static button at the bottom of the screen -->
+    <Button
+        android:id="@+id/staticButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="+ CHANGE"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+
+
+

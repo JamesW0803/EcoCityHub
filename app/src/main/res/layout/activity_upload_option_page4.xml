@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".UploadOption">
+
+        <ImageView
+            android:id="@+id/IVRectangle"
+            android:layout_width="412dp"
+            android:layout_height="92dp"
+            android:layout_marginTop="-14dp"
+            android:layout_marginBottom="823dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/title_background" />
+
+        <TextView
+            android:id="@+id/TVChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="86dp"
+            android:fontFamily="@font/montserrat"
+            android:text="CHAT"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+            app:layout_constraintEnd_toEndOf="@+id/IVRectangle"
+            app:layout_constraintStart_toEndOf="@+id/IVArrowBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/IVArrowBack"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/IVRectangle"
+            app:srcCompat="@drawable/img_1" />
+
+        <ImageView
+            android:id="@+id/IVGrey"
+            android:layout_width="411dp"
+            android:layout_height="895dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/rectangle" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="410dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="370dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/IVRectangle">
+
+            <ImageView
+                android:id="@+id/IVWhite"
+                android:layout_width="410dp"
+                android:layout_height="350dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/white_square_rectangle" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="35dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/IVCamera"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/baseline_camera_alt_24" />
+
+                    <TextView
+                        android:id="@+id/TVCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Camera"
+                        android:textColor="@color/darkBlueText"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="35dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/IVImage"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/baseline_image_24" />
+
+                    <TextView
+                        android:id="@+id/TVGallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Gallery"
+                        android:textColor="@color/darkBlueText"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="36dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/IVDocument"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/baseline_insert_drive_file_24" />
+
+                    <TextView
+                        android:id="@+id/TVDocument"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Document"
+                        android:textColor="@color/darkBlueText"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/BCancel"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/sharp_corner_button"
+            android:fontFamily="@font/montserrat"
+            android:text="CANCEL"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

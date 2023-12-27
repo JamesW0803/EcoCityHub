@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".ItemDescription">
+
+            <ImageView
+                android:id="@+id/IVRectangle"
+                android:layout_width="412dp"
+                android:layout_height="92dp"
+                android:layout_marginTop="-14dp"
+                android:layout_marginBottom="823dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/title_background" />
+
+            <TextView
+                android:id="@+id/TVResourceExchange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="86dp"
+                android:fontFamily="@font/montserrat"
+                android:text="RESOURCE EXCHANGE"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintStart_toEndOf="@+id/IVArrowBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/IVArrowBack"
+                android:layout_width="23dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/IVRectangle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/IVRectangle"
+                app:srcCompat="@drawable/img_1" />
+
+            <ImageView
+                android:id="@+id/IVLocation"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="87dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/IVRectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/TVResourceExchange"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/outline_chat_24" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/IVShoe1"
+                android:layout_width="433dp"
+                android:layout_height="300dp"
+                android:layout_marginBottom="566dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img_7" />
+
+            <TextView
+                android:id="@+id/TVShoeName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat"
+                android:text="ASICS TIGER CLASSIC CT MEN "
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IVShoe1" />
+
+            <TextView
+                android:id="@+id/TVShoeName6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="55dp"
+                android:fontFamily="@font/montserrat"
+                android:text="SPORTSTYLE SHOES (WHITE)"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/IVShoe1" />
+
+            <ImageView
+                android:id="@+id/IVFavourite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="43dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/TVShoeName1"
+                app:layout_constraintTop_toBottomOf="@+id/IVShoe1"
+                app:srcCompat="@drawable/baseline_favorite_border_24" />
+
+            <TextView
+                android:id="@+id/TVCondtion"
+                android:layout_width="299dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="92dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Condition"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVShoeName6" />
+
+            <TextView
+                android:id="@+id/TVLikeNew"
+                android:layout_width="299dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="92dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Like new"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVCondtion" />
+
+            <TextView
+                android:id="@+id/TVNotesOnCondition"
+                android:layout_width="299dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="93dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Notes on condition"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVLikeNew" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="393dp"
+                android:layout_height="134dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVNotesOnCondition">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
+                    android:layout_width="389dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/IVCircle1"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginTop="13dp"
+                        app:layout_constraintEnd_toStartOf="@+id/TVCondition1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/baseline_circle_24" />
+
+                    <TextView
+                        android:id="@+id/TVCondition1"
+                        android:layout_width="301dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="30dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Only worn once"
+                        android:textSize="17sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/IVCircle1"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="389dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/IVCircle2"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginTop="13dp"
+                        app:layout_constraintEnd_toStartOf="@+id/TVCondition2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/baseline_circle_24" />
+
+                    <TextView
+                        android:id="@+id/TVCondition2"
+                        android:layout_width="301dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="30dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Condition 9/10"
+                        android:textSize="17sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/IVCircle2"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="389dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="80dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/constraintLayout2">
+
+                    <ImageView
+                        android:id="@+id/IVCircle3"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginTop="13dp"
+                        app:layout_constraintEnd_toStartOf="@+id/TVCondition3"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/baseline_circle_24" />
+
+                    <TextView
+                        android:id="@+id/TVCondition3"
+                        android:layout_width="301dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="30dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="100% original"
+                        android:textSize="17sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/IVCircle3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/TVDetails"
+                android:layout_width="299dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="91dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Details"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+            <TextView
+                android:id="@+id/TVSize"
+                android:layout_width="299dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="92dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Size : EU42 / UK8 / US9"
+                android:textSize="19sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVDetails" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="350dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="CONFIRM EXCHANGE"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/constraintLayout5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout5"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
