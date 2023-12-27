@@ -13,13 +13,10 @@
         android:theme="@style/Theme.MADProjectVolunteer"
         tools:targetApi="31">
         <activity
-            android:name=".UploadCV"
+            android:name=".UserHome"
             android:exported="false" />
         <activity
-            android:name=".VolunteerPostUser"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".User_login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,17 +25,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".VolunteerList"
-            android:exported="false" >
+            android:name=".UploadCV"
+            android:exported="false" />
+        <activity
+            android:name=".VolunteerPostUser"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
+        <activity
+            android:name=".VolunteerList"
+            android:exported="false" />
         <activity
             android:name=".VolunteerFavourites"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".VolunteerFilter"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

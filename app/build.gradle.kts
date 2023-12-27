@@ -46,4 +46,6 @@ dependencies {
     // https://firebase.google.com/docs/android/setup#available-libraries
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.firebase:firebase-database:20.3.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 }

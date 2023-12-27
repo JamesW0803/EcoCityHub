@@ -1,8 +1,11 @@
 package com.example.madprojectvolunteer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageButton;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.widget.PopupMenu;
@@ -20,10 +23,11 @@ import java.util.ArrayList;
 
 public class VolunteerList extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private VolListAdapter recyclerViewAdapter;
-    private ArrayList<VolListData> dataArrayList = new ArrayList<>();
-    private VolListData volListData;
+    ArrayList <VolListHelper> activity_list;
+    RecyclerView recyclerView;
+    public final static String ACTIVITY_KEY = "ACTIVITY KEY";
+    public final static String ORGANIZER_NAME = "ORGANIZER_NAME";
+    VolListAdapter volListAdapter;
 
 
     @Override
@@ -60,7 +64,7 @@ public class VolunteerList extends AppCompatActivity {
         // Back Button
         ImageButton btnVolBack = findViewById(R.id.BtnVolBack);
         btnVolBack.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, UserHome.class));
         });
 
         // Filter Button
@@ -71,51 +75,47 @@ public class VolunteerList extends AppCompatActivity {
 
         // RecyclerView setup
         recyclerView = findViewById(R.id.RecycleViewVolunteer);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewAdapter = new VolListAdapter(this, dataArrayList);
-        recyclerView.setAdapter(recyclerViewAdapter);
+
+        // Set Adapter
+        activity_list = new ArrayList<VolListHelper>();
+
+        volListAdapter = new VolListAdapter(activity_list, (key, organizerName) -> {
+            Intent intent = new Intent(VolunteerList.this, VolunteerPostUser.class);
+            intent.putExtra(ACTIVITY_KEY, key);
+            intent.putExtra(ORGANIZER_NAME, organizerName);
+            startActivity(intent);
+        });
+
+        recyclerView.setAdapter(volListAdapter);
 
         // Fetch activity data from Firebase
-        fetchActivityDataFromFirebase();
+        DatabaseReference activitiesRef = FirebaseDatabase.getInstance().getReference("Activities");
 
-    }
-
-    private void fetchActivityDataFromFirebase() {
-
-
-        // TODO:Incomplete =======================================================
-
-        // Clear the existing data
-        dataArrayList.clear();
-
-        // Reference to the user's activities in the Firebase Realtime Database
-        DatabaseReference userActivitiesRef = FirebaseDatabase.getInstance().getReference("Activities");
-
-        // Add a ValueEventListener to listen for changes in the data at this location
-        userActivitiesRef.addValueEventListener(new ValueEventListener() {
+        activitiesRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Iterate through the children (activities) of the user's node
-                for (DataSnapshot activitySnapshot : dataSnapshot.getChildren()) {
-                    // Deserialize the data into a VolListData object
-                    VolListData activity = activitySnapshot.getValue(VolListData.class);
-
-                    // Check if the deserialization was successful
-                    if (activity != null) {
-                        dataArrayList.add(activity);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                activity_list.clear();
+                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+                    for(DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
+                        VolListHelper helper = dataSnapshot2.getValue(VolListHelper.class);
+                        if (helper != null) {
+                            helper.setKey(dataSnapshot2.getKey());
+                            helper.setOrganizerName(dataSnapshot1.getKey());
+                            activity_list.add(helper);
+                        }
                     }
                 }
-
-                // Notify the adapter that the dataset has changed
-                recyclerViewAdapter.notifyDataSetChanged();
+                volListAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle errors
+            public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(VolunteerList.this, "Failed to load activities.", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 }

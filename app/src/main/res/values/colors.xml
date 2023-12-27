@@ -9,4 +9,9 @@
     <color name="error">#FB0303</color>
     <color name="red">#FB0303</color>
     <color name="light_purple">#d9d9ff</color>
+    <!--    log in -->
+    <color name="purple">#3C7C7DCC</color>
+    <color name="login_background">#D8ECE2</color>
+    <color name="btn_color">#7C7DCC</color>
+    <color name="links_color">#0000EE</color>
 </resources>
