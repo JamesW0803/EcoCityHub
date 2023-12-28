@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Guideline2">
+
+    <view
+        android:id="@+id/navBar"
+        class="androidx.appcompat.widget.ActionMenuView"
+        android:layout_width="412dp"
+        android:layout_height="65dp"
+        android:background="#7fc19e"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/title_bg"
+        android:layout_width="348dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navBar"
+        app:srcCompat="@drawable/point_title" />
+
+    <TextView
+        android:id="@+id/Header1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HOW TO EARN POINTS"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/navBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/navBar"
+        app:layout_constraintTop_toTopOf="@+id/navBar" />
+
+    <ImageButton
+        android:id="@+id/backButton2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/Header1"
+        app:layout_constraintStart_toStartOf="@+id/navBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24_white" />
+
+    <TextView
+        android:id="@+id/title_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guideline 2"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/title_bg"
+        app:layout_constraintEnd_toEndOf="@+id/title_bg"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/title_bg"
+        app:layout_constraintTop_toTopOf="@+id/title_bg"
+        app:layout_constraintVertical_bias="0.582" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
