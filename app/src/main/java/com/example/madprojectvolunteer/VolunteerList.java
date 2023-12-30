@@ -25,8 +25,14 @@ public class VolunteerList extends AppCompatActivity {
 
     ArrayList <VolListHelper> activity_list;
     RecyclerView recyclerView;
-    public final static String ACTIVITY_KEY = "ACTIVITY KEY";
-    public final static String ORGANIZER_NAME = "ORGANIZER_NAME";
+
+//    // Key names to put in Intent
+//    public final static String USERNAME = "USERNAME";
+//    public final static String ACTIVITY_KEY = "ACTIVITY KEY";
+//    public final static String ORGANIZER_NAME = "ORGANIZER_NAME";
+
+    // Value (of USERNAME) to put in Intent
+    private String username; // TODO: Intent Value
     VolListAdapter volListAdapter;
 
 
@@ -35,43 +41,51 @@ public class VolunteerList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_list);
 
-        //Popup menu
+        // Get username using intent
+        username = getIntent().getStringExtra("username"); // TODO: getIntent
+//        Toast.makeText(VolunteerList.this,username,Toast.LENGTH_SHORT).show(); //TODO: Toast: Testing username
 
-        findViewById(R.id.BtnOptMenuVolunteer).setOnClickListener(v -> {
-            PopupMenu popup = new PopupMenu(this, v);
-            popup.getMenuInflater().inflate(R.menu.volunteer_popup_menu, popup.getMenu());
-
-            // Set the click listener for the items inside the PopupMenu
-            popup.setOnMenuItemClickListener(item -> {
-                // Switching on the item id of the menu item
-                int itemId = item.getItemId();
-                if (itemId == R.id.menu_vol_list) {
-                    // Handle "Volunteer Activities" click
-                    startActivity(new Intent(this, VolunteerList.class));
-                    return true;
-                } else if (itemId == R.id.menu_vol_favourites) {
-                    // Handle "Favourites" click
-                    startActivity(new Intent(this, VolunteerFavourites.class));
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-
-            popup.show();
-        });
+        // Popup menu
+//        findViewById(R.id.BtnOptMenuVolunteer).setOnClickListener(v -> {
+//            PopupMenu popup = new PopupMenu(this, v);
+//            popup.getMenuInflater().inflate(R.menu.volunteer_popup_menu, popup.getMenu());
+//
+//            // Set the click listener for the items inside the PopupMenu
+//            popup.setOnMenuItemClickListener(item -> {
+//                // Switching on the item id of the menu item
+//                int itemId = item.getItemId();
+//                if (itemId == R.id.menu_vol_list) {
+//                    // Handle "Volunteer Activities" click
+//                    startActivity(new Intent(this, VolunteerList.class));
+//                    return true;
+//                } else if (itemId == R.id.menu_vol_favourites) {
+//                    // Handle "Favourites" click
+//                    startActivity(new Intent(this, VolunteerFavourites.class));
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            });
+//
+//            popup.show();
+//        });
 
         // Back Button
         ImageButton btnVolBack = findViewById(R.id.BtnVolBack);
         btnVolBack.setOnClickListener(v -> {
-            startActivity(new Intent(this, UserHome.class));
+//            Intent intent = new Intent(VolunteerList.this, UserHome.class);
+//            intent.putExtra("ORGANIZER_NAME", organizerName);
+//            intent.putExtra("ACTIVITY_KEY", activityKey);
+//            intent.putExtra("USERNAME", username); //TODO: Pass username back
+//            startActivity(intent);
+            finish();
         });
 
         // Filter Button
-        ImageButton btnFilter = findViewById(R.id.BtnVolFilter);
-        btnFilter.setOnClickListener(v -> {
-            startActivity(new Intent(this, VolunteerFilter.class));
-        });
+//        ImageButton btnFilter = findViewById(R.id.BtnVolFilter);
+//        btnFilter.setOnClickListener(v -> {
+//            startActivity(new Intent(this, VolunteerFilter.class));
+//        });
 
         // RecyclerView setup
         recyclerView = findViewById(R.id.RecycleViewVolunteer);
@@ -81,10 +95,11 @@ public class VolunteerList extends AppCompatActivity {
         // Set Adapter
         activity_list = new ArrayList<VolListHelper>();
 
-        volListAdapter = new VolListAdapter(activity_list, (key, organizerName) -> {
+        volListAdapter = new VolListAdapter(activity_list, (key, organizerName, username) -> {
             Intent intent = new Intent(VolunteerList.this, VolunteerPostUser.class);
-            intent.putExtra(ACTIVITY_KEY, key);
-            intent.putExtra(ORGANIZER_NAME, organizerName);
+            intent.putExtra("ACTIVITY_KEY", key);
+            intent.putExtra("ORGANIZER_NAME", organizerName);
+            intent.putExtra("USERNAME", username);
             startActivity(intent);
         });
 
@@ -103,6 +118,7 @@ public class VolunteerList extends AppCompatActivity {
                         if (helper != null) {
                             helper.setKey(dataSnapshot2.getKey());
                             helper.setOrganizerName(dataSnapshot1.getKey());
+                            helper.setUsername(username);
                             activity_list.add(helper);
                         }
                     }

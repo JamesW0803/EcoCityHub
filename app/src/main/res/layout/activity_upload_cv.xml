@@ -52,21 +52,21 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/BtnUploadCV"
-            android:layout_width="wrap_content"
+            android:layout_width="327dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/TVUploadCVTitle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:background="@drawable/upload_cv_button"
-            android:drawableTop="@drawable/click_to_upload"
-            android:fontFamily="@font/montserrat"
+            android:drawableTop="@drawable/click_to_upload_icon"
+            android:fontFamily="@font/montserrat_semibold"
             android:paddingHorizontal="80dp"
             android:paddingVertical="20dp"
             android:scaleType="fitCenter"
-            android:text="PDF (MAX. 2MB)"
+            android:text="CLICK TO UPLOAD"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="16sp" >
+            android:textSize="16sp">
 
         </androidx.appcompat.widget.AppCompatButton>
 

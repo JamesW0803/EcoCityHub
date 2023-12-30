@@ -73,7 +73,6 @@ public class VolunteerFavourites extends AppCompatActivity {
 //        recyclerViewAdapter  = new VolListAdapter(this, dataArrayList);
 //        recyclerView.setAdapter(recyclerViewAdapter);
 
-        //TODO: add DetailedActivity.java and fragment_detailed_activity.xml
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {

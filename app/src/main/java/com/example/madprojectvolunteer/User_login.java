@@ -26,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-
 public class User_login extends AppCompatActivity {
     private EditText usernameOrEmailEditText,passwordEditText;
     private ImageButton togglePasswordButton;
@@ -88,10 +87,10 @@ public class User_login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) { // check by Authentication
                             Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), UserHome.class);
+                            Intent intent = new Intent(getApplicationContext(), UserHome.class); // TODO: MUST pass Intent to User Home page
                             intent.putExtra("username",usernameOrEmail);
                             startActivity(intent);
-                        } else if(!task.isSuccessful()){ // check bu username
+                        } else if(!task.isSuccessful()){ // check by username
                             checkUser();
                             Toast.makeText(User_login.this, "LogIn Successfully.", Toast.LENGTH_SHORT).show();
                         }else{

@@ -27,7 +27,7 @@ public class VolListAdapter extends RecyclerView.Adapter<VolListAdapter.Activity
             // Checking for null to avoid potential issues
             if (tagData != null) {
                 // Invoking the onClick method with both key and organizerName
-                clickListener.onClick(tagData.getKey(), tagData.getOrganizerName());
+                clickListener.onClick(tagData.getKey(), tagData.getOrganizerName(), tagData.getUsername());
             }
         };
     }
@@ -50,7 +50,7 @@ public class VolListAdapter extends RecyclerView.Adapter<VolListAdapter.Activity
         holder.time.setText(model.getStartTimeActivity());
 
         // Creating a custom object to hold both key and organizerName
-        TagData tagData = new TagData(model.getKey(), model.getOrganizerName());
+        TagData tagData = new TagData(model.getKey(), model.getOrganizerName(), model.getUsername());
 
         // Setting the custom object as the tag
         holder.seeMore.setTag(tagData);
@@ -81,7 +81,7 @@ public class VolListAdapter extends RecyclerView.Adapter<VolListAdapter.Activity
     }
 
     public interface ClickListener {
-        void onClick(String key, String organizerName);
+        void onClick(String key, String organizerName, String username);
     }
 
 
@@ -89,10 +89,12 @@ public class VolListAdapter extends RecyclerView.Adapter<VolListAdapter.Activity
     private static class TagData {
         private String key;
         private String organizerName;
+        private String username;
 
-        public TagData(String key, String organizerName) {
+        public TagData(String key, String organizerName, String username) {
             this.key = key;
             this.organizerName = organizerName;
+            this.username = username;
         }
 
         public String getKey() {
@@ -101,6 +103,9 @@ public class VolListAdapter extends RecyclerView.Adapter<VolListAdapter.Activity
 
         public String getOrganizerName() {
             return organizerName;
+        }
+        public String getUsername() {
+            return username;
         }
     }
 

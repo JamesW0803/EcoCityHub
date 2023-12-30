@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +20,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class VolunteerPostUser extends AppCompatActivity {
-    MaterialButton BtnVolPostBack, BTEditActivity;
+    MaterialButton BtnVolPostBack;
     TextView TVVolPostTitle, TVVolPostDesc, TVVolPostPoints, TVVolPostDate, TVVolPostTime, TVVolPostLocation, TVVolPostAddress, TVAgeGroupValue, TVRequirementsValue, TVContactValue;
     AppCompatButton BtnVolApply;
+
+
+    // Value to put in Intent
+    private String username; //TODO: Intent Value
+    private String activityKey;
+    private String organizerName;
+    private String finishUpload; // special case for back button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +48,83 @@ public class VolunteerPostUser extends AppCompatActivity {
         TVContactValue = findViewById(R.id.TVContactValue);
         BtnVolApply = findViewById(R.id.BtnVolApply);
 
-        String organizerName = getIntent().getStringExtra(VolunteerList.ORGANIZER_NAME);
-        String activityKey = getIntent().getStringExtra(VolunteerList.ACTIVITY_KEY);
-
-//        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-//        String username = sharedPreferences.getString("username", "");
-//
-//        if (username.isEmpty()) {
-//            Toast.makeText(this, "No username found. Please log in again.", Toast.LENGTH_LONG).show();
-//            Intent intent = new Intent(this, User_login.class);
-//            startActivity(intent);
-//            finish();
-//            return;
+        // TODO: get value using Intent
+        organizerName = getIntent().getStringExtra("ORGANIZER_NAME");
+        activityKey = getIntent().getStringExtra("ACTIVITY_KEY");
+        username = getIntent().getStringExtra("USERNAME");
+        //special case for back button
+//        if(getIntent().getStringExtra("finishUpload") != null){
+//            finishUpload = getIntent().getStringExtra("finishUpload");
+//        }else{
+//            finishUpload = "";
 //        }
 
+        //test activityKey
+        //Toast.makeText(VolunteerPostUser.this, activityKey, Toast.LENGTH_LONG).show();
+
+        // test username
+//        if (username == null) {
+//            Toast.makeText(VolunteerPostUser.this, "Username is null 1", Toast.LENGTH_SHORT).show();
+//        }else{
+//            Toast.makeText(VolunteerPostUser.this, username, Toast.LENGTH_SHORT).show();
+//        }
+
+        // setText of BtnVolApply (Apply or Applied)  >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        // APPLICATIONS
+        DatabaseReference appReference = FirebaseDatabase.getInstance().getReference("Application").child(username);
+
+
+            //appReference = appReference.child(username);
+            //Log.d("VolunteerPostUser", "has appReference.child(username): " + appReference.getKey().toString());
+
+        if (username != null) {
+            appReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot appSnapshot) {
+                    if (appSnapshot.exists()) {
+                        for (DataSnapshot applicationID : appSnapshot.getChildren()) {
+
+                            // test application ID
+                            // Log.d("VolunteerPostUser", "getKey: " + applicationID.getKey().toString()); //can get application ID
+
+                            String databaseActivityKey = applicationID.child("activityKey").getValue(String.class);
+
+                            if (databaseActivityKey != null && databaseActivityKey.equals(activityKey)) {
+                                // addListenerForSingleValueEvent method is asynchronous method
+                                BtnVolApply.setText("Applied");
+                                BtnVolApply.setEnabled(false);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(VolunteerPostUser.this, "Failed to load applications details.", Toast.LENGTH_SHORT).show();
+                }
+
+            });
+        }else {
+            // Handle the case where username is null
+            Toast.makeText(VolunteerPostUser.this, "Username is null", Toast.LENGTH_SHORT).show();
+        }
+
+
+        // Update frontend with database value >>>>>>>>>>>>
+        // ACTIVITIES
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Activities").child(organizerName).child(activityKey);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                // setText to TextView and Button >>>>
                 VolunteerPostUserHelper volPostHelper = snapshot.getValue(VolunteerPostUserHelper.class);
 
                 if (volPostHelper != null){
+
                     TVVolPostTitle.setText(volPostHelper.getTitle());
                     TVVolPostDesc.setText(volPostHelper.getDescription());
                     TVVolPostPoints.setText(volPostHelper.getPoints() + " Points");
@@ -72,6 +135,7 @@ public class VolunteerPostUser extends AppCompatActivity {
                     TVAgeGroupValue.setText(volPostHelper.getMinimumAge() + " - " + volPostHelper.getMaximumAge() + " years old");
                     TVRequirementsValue.setText(volPostHelper.getRequirements());
                     TVContactValue.setText(volPostHelper.getContactNo());
+
                 }
             }
 
@@ -84,16 +148,45 @@ public class VolunteerPostUser extends AppCompatActivity {
         BtnVolPostBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(VolunteerPostUser.this, VolunteerList.class);
-                startActivity(intent);
+
+                finish();
+
+//                Toast.makeText(VolunteerPostUser.this,"finishUpload: "+finishUpload,Toast.LENGTH_SHORT).show();
+//
+//                if(finishUpload.equals("true")){
+//                    Intent intent = new Intent(VolunteerPostUser.this, VolunteerList.class);
+//                    intent.putExtra("USERNAME", username);
+//                    startActivity(intent);
+//                    finish();
+//                }else{
+//                    finish();
+//                }
+
+//                if(finishUpload.equals("true")){
+//                    // If finishUpload is true, clear two activities from the back stack
+//                    Intent intent = new Intent(VolunteerPostUser.this, VolunteerList.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); //has Bug
+//                    intent.putExtra("USERNAME", username);
+//                    startActivity(intent);
+//                    finish();
+//                }else {
+////                Intent intent = new Intent(VolunteerPostUser.this, VolunteerList.class);
+//////                intent.putExtra("ORGANIZER_NAME", organizerName);
+//////                intent.putExtra("ACTIVITY_KEY", activityKey);
+////                intent.putExtra("USERNAME", username); //Pass username back
+////                startActivity(intent);
+//                    finish();
+//                }
             }
         });
 
-        //TODO: Incomplete
         BtnVolApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(VolunteerPostUser.this, UploadCV.class);
+                intent.putExtra("ACTIVITY_KEY", activityKey);
+                intent.putExtra("USERNAME", username); //Pass username & activityKey to Upload CV
+                intent.putExtra("ORGANIZER_NAME",organizerName);
                 startActivity(intent);
             }
         });

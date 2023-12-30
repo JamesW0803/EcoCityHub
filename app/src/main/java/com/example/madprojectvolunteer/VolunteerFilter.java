@@ -16,7 +16,8 @@ public class VolunteerFilter extends AppCompatActivity {
         // Back Button
         ImageButton btnFilterBack = findViewById(R.id.BtnFilterBack);
         btnFilterBack.setOnClickListener(v -> {
-            startActivity(new Intent(this, VolunteerList.class));
+            //startActivity(new Intent(this, VolunteerList.class));
+            finish();
         });
 
     }

@@ -34,7 +34,7 @@
             android:layout_below="@+id/BtnVolPostBack"
             android:layout_marginLeft="35dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Animal Shelter Volunteer"
+            android:text="Title"
             android:textColor="@color/white"
             android:textSize="35dp"
             android:textStyle="bold" />
@@ -70,7 +70,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="105 points"
+        android:text="100 points"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -121,7 +121,7 @@
                 android:layout_toRightOf="@+id/IVVolPostCalendar"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingHorizontal="30dp"
-                android:text="May 14, 2023"
+                android:text="Date"
                 android:textColor="@color/bluish_purple"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -151,7 +151,7 @@
                 android:layout_toRightOf="@+id/IVVolPostTime"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingHorizontal="30dp"
-                android:text="9.00 am - 4.00pm"
+                android:text="Time"
                 android:textColor="@color/bluish_purple"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -181,7 +181,7 @@
                 android:layout_toRightOf="@+id/IVVolPostLocation"
                 android:fontFamily="@font/montserrat_semibold"
                 android:paddingLeft="30dp"
-                android:text="PAWS Animal Rescue Center"
+                android:text="Location"
                 android:textColor="@color/bluish_purple"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -236,7 +236,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:fontFamily="@font/montserrat"
-                    android:text="15-65 years old" />
+                    android:text="xxx years old" />
 
                 <TextView
                     android:id="@+id/TVRequirementsTitle"
