@@ -43,17 +43,6 @@ public class VolunteerPostUser extends AppCompatActivity {
         String organizerName = getIntent().getStringExtra(VolunteerList.ORGANIZER_NAME);
         String activityKey = getIntent().getStringExtra(VolunteerList.ACTIVITY_KEY);
 
-//        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-//        String username = sharedPreferences.getString("username", "");
-//
-//        if (username.isEmpty()) {
-//            Toast.makeText(this, "No username found. Please log in again.", Toast.LENGTH_LONG).show();
-//            Intent intent = new Intent(this, User_login.class);
-//            startActivity(intent);
-//            finish();
-//            return;
-//        }
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Activities").child(organizerName).child(activityKey);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -89,7 +78,6 @@ public class VolunteerPostUser extends AppCompatActivity {
             }
         });
 
-        //TODO: Incomplete
         BtnVolApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
