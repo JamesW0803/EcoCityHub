@@ -113,6 +113,7 @@ public class VolunteerPostUser extends AppCompatActivity {
 
         // Update frontend with database value >>>>>>>>>>>>
         // ACTIVITIES
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Activities").child(organizerName).child(activityKey);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
