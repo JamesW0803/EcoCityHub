@@ -39,15 +39,6 @@
             android:textSize="35dp"
             android:textStyle="bold" />
 
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/BtnVolPostFavourite"
-            android:layout_width="69dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            app:icon="@drawable/heart_empty"
-            app:iconSize="30dp" />
-
     </LinearLayout>
 
     <TextView

@@ -48,10 +48,11 @@ public class VolunteerPostUser extends AppCompatActivity {
         TVContactValue = findViewById(R.id.TVContactValue);
         BtnVolApply = findViewById(R.id.BtnVolApply);
 
-        // TODO: get value using Intent
+        // get value using Intent
         organizerName = getIntent().getStringExtra("ORGANIZER_NAME");
         activityKey = getIntent().getStringExtra("ACTIVITY_KEY");
         username = getIntent().getStringExtra("USERNAME");
+
         //special case for back button
 //        if(getIntent().getStringExtra("finishUpload") != null){
 //            finishUpload = getIntent().getStringExtra("finishUpload");

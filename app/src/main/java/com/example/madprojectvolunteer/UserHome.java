@@ -27,7 +27,7 @@ public class UserHome extends AppCompatActivity {
             //Get username
             username = getIntent().getStringExtra("username");
 
-//            Toast.makeText(UserHome.this, username, Toast.LENGTH_LONG).show(); //TODO: Toast: Testing Username
+//            Toast.makeText(UserHome.this, username, Toast.LENGTH_LONG).show(); //Toast: Testing Username
 
         volunteerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +35,8 @@ public class UserHome extends AppCompatActivity {
                 // Handle button click, navigate to Volunteer List page
                 try {
                     Intent intent = new Intent(UserHome.this, VolunteerList.class);
-                    intent.putExtra("username",username); // TODO: Must put this to pass username
+                    // TODO: Must put this to pass username to Volunteer (same for resources, reward, user profile)
+                    intent.putExtra("username",username);
                     startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();

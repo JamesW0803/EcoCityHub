@@ -54,10 +54,10 @@ public class UploadCV extends AppCompatActivity {
         setContentView(R.layout.activity_upload_cv);
 
 
-        //TODO: Authentication Testing 1
+        //Authentication Testing 1
 
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
+//        mAuth = FirebaseAuth.getInstance();
+//        currentUser = mAuth.getCurrentUser();
 
 
 //        if (currentUser != null) {
@@ -75,7 +75,7 @@ public class UploadCV extends AppCompatActivity {
 //            Toast.makeText(UploadCV.this, "User not logged in", Toast.LENGTH_SHORT).show();
 //        }
 
-        //TODO: Authentication Testing 2
+        //Authentication Testing 2
 //        mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
 //            @Override
 //            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -94,7 +94,7 @@ public class UploadCV extends AppCompatActivity {
 //        });
 
         // Get username using Intent
-        username = getIntent().getStringExtra("USERNAME"); //TODO: get Intent
+        username = getIntent().getStringExtra("USERNAME");
         activityKey = getIntent().getStringExtra("ACTIVITY_KEY");
         organizerName = getIntent().getStringExtra("ORGANIZER_NAME");
 
@@ -117,7 +117,7 @@ public class UploadCV extends AppCompatActivity {
             public void onClick(View v) {
 //                Intent intent = new Intent(UploadCV.this, VolunteerPostUser.class);
 //                intent.putExtra("ACTIVITY_KEY", activityKey);
-//                intent.putExtra("USERNAME", username); //TODO: Pass username & activityKey back to Volunteer Post page
+//                intent.putExtra("USERNAME", username); //Pass username & activityKey back to Volunteer Post page
 //                intent.putExtra("ORGANIZER_NAME",organizerName);
 //                startActivity(intent);
                 finish();

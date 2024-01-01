@@ -42,33 +42,10 @@ public class VolunteerList extends AppCompatActivity {
         setContentView(R.layout.activity_volunteer_list);
 
         // Get username using intent
-        username = getIntent().getStringExtra("username"); // TODO: getIntent
-//        Toast.makeText(VolunteerList.this,username,Toast.LENGTH_SHORT).show(); //TODO: Toast: Testing username
+        username = getIntent().getStringExtra("username"); // getIntent
+//        Toast.makeText(VolunteerList.this,username,Toast.LENGTH_SHORT).show(); //Toast: Testing username
 
-        // Popup menu
-//        findViewById(R.id.BtnOptMenuVolunteer).setOnClickListener(v -> {
-//            PopupMenu popup = new PopupMenu(this, v);
-//            popup.getMenuInflater().inflate(R.menu.volunteer_popup_menu, popup.getMenu());
-//
-//            // Set the click listener for the items inside the PopupMenu
-//            popup.setOnMenuItemClickListener(item -> {
-//                // Switching on the item id of the menu item
-//                int itemId = item.getItemId();
-//                if (itemId == R.id.menu_vol_list) {
-//                    // Handle "Volunteer Activities" click
-//                    startActivity(new Intent(this, VolunteerList.class));
-//                    return true;
-//                } else if (itemId == R.id.menu_vol_favourites) {
-//                    // Handle "Favourites" click
-//                    startActivity(new Intent(this, VolunteerFavourites.class));
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            });
-//
-//            popup.show();
-//        });
+
 
         // Back Button
         ImageButton btnVolBack = findViewById(R.id.BtnVolBack);
@@ -76,16 +53,11 @@ public class VolunteerList extends AppCompatActivity {
 //            Intent intent = new Intent(VolunteerList.this, UserHome.class);
 //            intent.putExtra("ORGANIZER_NAME", organizerName);
 //            intent.putExtra("ACTIVITY_KEY", activityKey);
-//            intent.putExtra("USERNAME", username); //TODO: Pass username back
+//            intent.putExtra("USERNAME", username);
 //            startActivity(intent);
             finish();
         });
 
-        // Filter Button
-//        ImageButton btnFilter = findViewById(R.id.BtnVolFilter);
-//        btnFilter.setOnClickListener(v -> {
-//            startActivity(new Intent(this, VolunteerFilter.class));
-//        });
 
         // RecyclerView setup
         recyclerView = findViewById(R.id.RecycleViewVolunteer);

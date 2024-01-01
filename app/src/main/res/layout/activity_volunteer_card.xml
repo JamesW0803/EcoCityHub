@@ -32,15 +32,6 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/IVHeart"
-                android:layout_width="29dp"
-                android:layout_height="24dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/heart_empty" />
-
-
         </RelativeLayout>
 
 
