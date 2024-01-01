@@ -74,8 +74,8 @@ public class VolunteerPostUser extends AppCompatActivity {
         DatabaseReference appReference = FirebaseDatabase.getInstance().getReference("Application").child(username);
 
 
-            //appReference = appReference.child(username);
-            //Log.d("VolunteerPostUser", "has appReference.child(username): " + appReference.getKey().toString());
+        //appReference = appReference.child(username);
+        //Log.d("VolunteerPostUser", "has appReference.child(username): " + appReference.getKey().toString());
 
         if (username != null) {
             appReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -87,11 +87,11 @@ public class VolunteerPostUser extends AppCompatActivity {
                             // test application ID
                             // Log.d("VolunteerPostUser", "getKey: " + applicationID.getKey().toString()); //can get application ID
 
-                            String databaseActivityKey = applicationID.child("activityKey").getValue(String.class);
+                            String databaseActivityID = applicationID.child("activityID").getValue(String.class);
 
-                            if (databaseActivityKey != null && databaseActivityKey.equals(activityKey)) {
+                            if (databaseActivityID != null && databaseActivityID.equals(activityKey)) {
                                 // addListenerForSingleValueEvent method is asynchronous method
-                                BtnVolApply.setText("Applied");
+                                BtnVolApply.setText(applicationID.child("status").getValue(String.class));
                                 BtnVolApply.setEnabled(false);
                                 break;
                             }
@@ -113,6 +113,7 @@ public class VolunteerPostUser extends AppCompatActivity {
 
         // Update frontend with database value >>>>>>>>>>>>
         // ACTIVITIES
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Activities").child(organizerName).child(activityKey);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {

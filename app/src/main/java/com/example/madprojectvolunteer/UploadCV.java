@@ -184,7 +184,7 @@ public class UploadCV extends AppCompatActivity {
                         String status = "Pending";
 
                         // Put value into UploadCVHelper
-                        UploadCVHelper UploadCVHelper = new UploadCVHelper(activityKey, status, pdfName, uri.toString(), username);
+                        UploadCVHelper UploadCVHelper = new UploadCVHelper(activityKey, status, pdfName, uri.toString());
                         databaseReference.child(username).child(databaseReference.push().getKey()).setValue(UploadCVHelper);
                         Toast.makeText(UploadCV.this, "File Uploaded", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();

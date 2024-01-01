@@ -2,16 +2,15 @@ package com.example.madprojectvolunteer;
 
 public class UploadCVHelper {
 
-    public String username, activityKey, status, fileName, url;
+    public String activityID, status, fileName, url;
 
     public UploadCVHelper(){}
 
-    public UploadCVHelper(String activityKey, String status, String fileName, String url, String username) {
-        this.activityKey = activityKey;
+    public UploadCVHelper(String activityID, String status, String fileName, String url) {
+        this.activityID = activityID;
         this.status = status;
         this.fileName = fileName;
         this.url = url;
-        this.username = username;
     }
 
     public String getUrl() {
@@ -26,20 +25,13 @@ public class UploadCVHelper {
         this.fileName = fileName;
         this.url = url;
     }
-    public String getUsername() {
-        return username;
+
+    public String getActivityID() {
+        return activityID;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getActivityKey() {
-        return activityKey;
-    }
-
-    public void setActivityKey(String activityKey) {
-        this.activityKey = activityKey;
+    public void setActivityID(String activityID) {
+        this.activityID = activityID;
     }
 
     public String getStatus() {
